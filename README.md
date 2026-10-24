@@ -18,9 +18,9 @@ A formal observed-vs-predicted comparison (and a CDM vs. WDM test) is **not** pa
 KSP-7.0-GD-1-Stellar-Stream/
 ├── README.md
 ├── notebooks/
-│   ├── 1.GD1 membership and gaps.ipynb              # GD-1 from Gaia DR3 + Monte Carlo + gap detection
-│   ├── 2.Multistream track and gaps.ipynb           # Same method on six streams
-│   └── 3.Stream ages and encounter rates.ipynb      # Stream ages + TNG50 subhalo encounter rates
+    ├── 1.GD1 membership and gaps.ipynb              # GD-1 from Gaia DR3 + Monte Carlo + gap detection
+    ├── 2.Multistream track and gaps.ipynb           # Same method on six streams
+    └── 3.Stream ages and encounter rates.ipynb      # Stream ages + TNG50 subhalo encounter rates
 
 ```
 
