@@ -1,6 +1,6 @@
 # Ripples in the Dark: Gaps in Stellar Streams and Predicted Dark Matter Subhalo Encounters
 
-**KSP 7.0 project, IISER Pune**
+**KSP 7.0 project (Jun-Jul 2026), hosted by IIT Bombay**
 
 Dark matter subhalos passing near a stellar stream can carve gaps into it. This project (1) measures GD-1 from Gaia DR3 and detects candidate gaps with quantified uncertainty, (2) applies a comparable pipeline to six other streams, and (3) predicts how many subhalo encounters each stream should have experienced, using Milky Way-analog halos from IllustrisTNG50-1.
 
@@ -17,18 +17,16 @@ A formal observed-vs-predicted comparison (and a CDM vs. WDM test) is **not** pa
 ```
 KSP-7.0-GD-1-Stellar-Stream/
 ├── README.md
-├── notebooks
-│   ├── 1.GD1 membership and gaps.ipynb        # GD-1 from Gaia DR3 + Monte Carlo + gap detection
-│   ├── 2. Multistream track and gaps.ipynb # Same method on six streams
-│   └── 3. Stream ages and encounter rates.ipynb    # Stream ages + TNG50 subhalo encounter rates
-├── data/                                    # small files + download instructions
-├── results/                                 # CSV tables of the numbers below
-├── figures/                                 # plots used in this README
-└── archive/
-    └── gd1_stellar_stream_midterm.ipynb     # superseded midterm draft
+├── notebooks/
+│   ├── 1.GD1 membership and gaps.ipynb              # GD-1 from Gaia DR3 + Monte Carlo + gap detection
+│   ├── 2.Multistream track and gaps.ipynb           # Same method on six streams
+│   └── 3.Stream ages and encounter rates.ipynb      # Stream ages + TNG50 subhalo encounter rates
+
 ```
 
-## Notebook 1: GD-1 characterization
+Run the notebooks in order (1, 2, 3). Large inputs (Gaia, TNG50) are not committed; see [Data sources](#data-sources-and-references) and `data/` for access instructions.
+
+## Notebook 1: GD-1 membership and gaps
 
 **Pipeline:** CMD/isochrone cut, proper-motion cut (GD1Koposov10 frame), spatial footprint cut, KDE density selection, iterative polynomial track fit, width cut, density profile, gap detection.
 
@@ -43,7 +41,7 @@ Run on the full footprint (25 RA/Dec tiles):
 | **Final members (after width cut)** | **722** |
 
 - Fitted stream width: sigma = 0.178 deg; the width cut is applied at 2 sigma = 0.356 deg.
-- **Uncertainty:** a Monte Carlo over proper-motion errors (`mc_member_count`) gives 643 (+35/-34) members, with 0 failed realizations. Gap detection is re-run in every realization.
+- **Uncertainty:** a Monte Carlo over proper-motion errors (`mc_member_count`, 100 realizations) gives 643 (+35/-34) members, with 0 failed realizations. Gap detection is re-run in every realization.
 
 **Candidate gaps** (`gap_recovery`):
 
@@ -54,7 +52,7 @@ Run on the full footprint (25 RA/Dec tiles):
 
 Note: the Monte Carlo member count sits below the nominal count partly because the catalogue proper motions already carry Gaia errors and are perturbed again (double noise), so the MC spread should be read as conservative.
 
-## Notebook 2: six other streams
+## Notebook 2: multi-stream track and gaps
 
 The same selection, a sigma-clipped iterative track fit (polynomial order 3, MAD width estimate with a `curve_fit` fallback), and a multi-scale gap finder with edge exclusion and overlap-based deduplication ranked by significance.
 
@@ -93,11 +91,21 @@ Rates are in encounters per kpc of stream. A median rate of 0 means fewer than h
 - **Small-number effects.** Several streams have median predicted rate 0 and few detected gaps, so per-stream conclusions are weak.
 - **Orbit and age assumptions.** Ages rely on a stream-length matching model; rates depend on the 5 Gyr orbit integration and the Milky Way potential used.
 
-## Data and references
+## Data sources and references
 
-- Gaia DR3 (astrometry and photometry)
-- IllustrisTNG50-1 (halos and subhalos)
-- Stream discovery papers for the six streams (e.g. Shipp et al. 2019, Bonaca et al. 2019, Ibata et al. 2021) and Lu et al. (2026) for stream ages
+| Data | Source |
+|---|---|
+| GD-1 stars | Gaia DR3 via the ESA Gaia Archive (queried through TAP; the AIP mirror is the default, ARI Heidelberg and VizieR are fallbacks) |
+| Other streams (Indus, C-12, Ylgr, Orphan, NGC 6397, Jhelum) | Member stars from the STREAMFINDER catalogue *[add citation and URL]* |
+| Stream coordinate frames | `galstreams` Python package |
+| Isochrones | CMD web interface *[add model set and citation]* |
+| Subhalos and host halos | IllustrisTNG, run TNG50-1, snapshot 99 (z = 0), via the TNG API |
+
+**TNG API access:** the notebook reads your personal key from an environment variable, so no credentials are stored in the repository. Get a key from the [TNG project site](https://www.tng-project.org/), then set `TNG_API_KEY` before running Notebook 3.
+
+References:
+- Stream discovery papers for the six streams (e.g. Shipp et al. 2019, Bonaca et al. 2019, Ibata et al. 2021)
+- Fardal et al. (2015) for the particle-spray stream model, and Lu et al. (2026) for the length-matching age method
 - Koposov et al. (2010) and Malhan & Ibata (2019) for GD-1 width cross-checks
 
 ## Author
@@ -106,5 +114,4 @@ Saswata Das, 3rd-year BS-MS Physics, IISER Pune
 
 ## Acknowledgments
 
-*[Add KSP mentor names here]*
-
+Mentors: Tamojeet Rowchoudhury (UC Berkeley) and Ravi Kumar (University of Minnesota). Coordinator: Vihang Vidwans (IIT Bombay).
