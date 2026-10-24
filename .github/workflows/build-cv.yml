@@ -1,8 +1,9 @@
 name: Build CV
 on:
   push:
-    paths: ["cv/cv.tex"]
-  workflow_dispatch:
+    paths:
+      - "cv/cv.tex"
+      - ".github/workflows/build-cv.yml"
 permissions:
   contents: write
 jobs:
