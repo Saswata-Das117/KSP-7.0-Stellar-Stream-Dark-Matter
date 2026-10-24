@@ -113,7 +113,7 @@ References:
 
 ## Author
 
-Saswata Das, 3rd-year BS-MS Physics, IISER Pune. [CV](Saswata_Das_CV_2026.pdf)
+Saswata Das, 3rd-year BS-MS Physics, IISER Pune. [CV](CV.pdf)
 ## Acknowledgments
 
 Mentors: Tamojeet Rowchoudhury (UC Berkeley) and Ravi Kumar (University of Minnesota). Coordinator: Vihang Vidwans (IIT Bombay).
