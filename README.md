@@ -10,8 +10,9 @@ A formal observed-vs-predicted comparison (and a CDM vs. WDM test) is **not** pa
 
 - **GD-1:** 722 members from 3.0M Gaia DR3 stars; Monte Carlo over proper-motion errors gives 643 (+35/-34) members with 0 failed realizations. Two candidate gaps recovered in 93% and 99% of realizations.
 - **Six other streams:** 13 candidate gaps in total; the strongest are in Indus (7.9 sigma) and C-12 (7.5 sigma).
-- **Encounter-rate predictions:** per-stream orbits, ages and subhalo relative speeds give very different rates across streams (Orphan highest, NGC 6397 near zero), unlike a single-constant approach.
+- **Encounter-rate predictions:** predicted rates range from a median of 0.032 encounters per kpc (Orphan, with encounters in 98% of the 103 TNG50-1 halos) to zero (NGC 6397, Ylgr, C-12), because each stream's orbit, age and subhalo relative speeds enter the calculation.
 
+  
 ## Repository structure
 
 ```
@@ -112,8 +113,7 @@ References:
 
 ## Author
 
-Saswata Das, 3rd-year BS-MS Physics, IISER Pune
-
+Saswata Das, 3rd-year BS-MS Physics, IISER Pune. [CV](Saswata_Das_CV_2026.pdf)
 ## Acknowledgments
 
 Mentors: Tamojeet Rowchoudhury (UC Berkeley) and Ravi Kumar (University of Minnesota). Coordinator: Vihang Vidwans (IIT Bombay).
