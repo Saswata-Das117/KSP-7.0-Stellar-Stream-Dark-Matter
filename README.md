@@ -17,20 +17,16 @@ A formal observed-vs-predicted comparison (and a CDM vs. WDM test) is **not** pa
 ```
 KSP-7.0-GD-1-Stellar-Stream/
 ├── README.md
-├── requirements.txt
-├── LICENSE
-├── notebooks/
-│   ├── 01_gd1_characterization.ipynb        # GD-1 from Gaia DR3 + Monte Carlo + gap detection
-│   ├── 02_multi_stream_underdensities.ipynb # Same method on six streams
-│   └── 03_ages_and_encounter_rates.ipynb    # Stream ages + TNG50 subhalo encounter rates
+├── notebooks
+│   ├── 1.GD1 membership and gaps.ipynb        # GD-1 from Gaia DR3 + Monte Carlo + gap detection
+│   ├── 2. Multistream track and gaps.ipynb # Same method on six streams
+│   └── 3. Stream ages and encounter rates.ipynb    # Stream ages + TNG50 subhalo encounter rates
 ├── data/                                    # small files + download instructions
 ├── results/                                 # CSV tables of the numbers below
 ├── figures/                                 # plots used in this README
 └── archive/
     └── gd1_stellar_stream_midterm.ipynb     # superseded midterm draft
 ```
-
-Run the notebooks in order (01, 02, 03). Large inputs (Gaia, TNG50) are not committed; see `data/` for download instructions.
 
 ## Notebook 1: GD-1 characterization
 
@@ -78,7 +74,7 @@ The same selection, a sigma-clipped iterative track fit (polynomial order 3, MAD
 - **Ages:** estimated by length matching with Fardal-spray models (following Lu et al. 2026), validated against published ages. Where no published age exists (Ylgr, C-12), the fitted age is used.
 - **Encounter rates:** per-stream orbital shells from a 5 Gyr orbit integration, per-subhalo relative speeds from TNG, and the stream age above. 103 Milky Way-analog halos (1-2e12 Msun) from IllustrisTNG50-1, with subhalos of 1e6-1e9 Msun.
 
-| Stream | Lu et al. age (Gyr) | Fitted age (Gyr) | Age used (Gyr) | Median rate | Halos with encounters |
+| Stream | Lu et al. age (Gyr) | Fitted age (Gyr) | Age used (Gyr) | Median rate (encounters per kpc) | Halos with encounters |
 |---|---|---|---|---|---|
 | Indus | 0.64 | 0.93 | 0.64 | 0.0077 | 51% |
 | Jhelum | 0.14 | 0.21 | 0.14 | 0.0021 | 94% |
@@ -87,7 +83,7 @@ The same selection, a sigma-clipped iterative track fit (polynomial order 3, MAD
 | Ylgr | none | 1.18 (0.54-2.58) | 1.18 | 0 | 34% |
 | C-12 | none | 0.13 (0.07-0.22) | 0.13 | 0 | 6% |
 
-A median rate of 0 means fewer than half of the host halos produce any encounter for that stream.
+Rates are in encounters per kpc of stream. A median rate of 0 means fewer than half of the host halos produce any encounter for that stream.
 
 ## Limitations and future work
 
@@ -111,3 +107,4 @@ Saswata Das, 3rd-year BS-MS Physics, IISER Pune
 ## Acknowledgments
 
 *[Add KSP mentor names here]*
+
