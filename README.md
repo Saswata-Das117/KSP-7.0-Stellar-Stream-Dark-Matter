@@ -16,12 +16,17 @@ A formal observed-vs-predicted comparison (and a CDM vs. WDM test) is **not** pa
 ## Repository structure
 
 ```
-KSP-7.0-GD-1-Stellar-Stream/
+KSP-7.0-Stellar-Stream-Dark-Matter/
 ├── README.md
+├── cv/
+│   ├── cv.tex                                   # CV source
+│   └── cv.pdf                                   # built from cv.tex by GitHub Actions
+├── .github/workflows/build-cv.yml               # rebuilds the CV when cv.tex changes
+├── CV.pdf                                       # copy of cv/cv.pdf, updated automatically
 ├── 1.GD1 membership and gaps.ipynb              # GD-1 from Gaia DR3 + Monte Carlo + gap detection
 ├── 2 Multistream track and gaps.ipynb           # Same method on six streams
-├── 3. Stream ages and encounter rates.ipynb     # Stream ages + TNG50 subhalo encounter rates
-└── Saswata_Das_CV_2026.pdf
+└── 3. Stream ages and encounter rates.ipynb     # Stream ages + TNG50 subhalo encounter rates
+
 
 ```
 
