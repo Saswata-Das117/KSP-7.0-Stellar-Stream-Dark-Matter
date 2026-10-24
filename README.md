@@ -85,20 +85,20 @@ Rates are in encounters per kpc of stream. A median rate of 0 means fewer than h
 
 ## Limitations and future work
 
-- **No formal observed-vs-predicted comparison.** Notebooks 2 and 3 are not combined into a statistical test. Detected gaps are candidates, and predicted rates are expected encounter counts; matching them quantitatively is future work.
-- **No CDM vs. WDM discrimination.** TNG50-1 is a cold dark matter simulation. Testing WDM would require suppressing the subhalo mass function below a half-mode mass, which is not implemented.
-- **Detection completeness is not measured.** Gap recovery is assessed under proper-motion-error perturbation (GD-1 only), not by injecting synthetic gaps.
-- **Small-number effects.** Several streams have median predicted rate 0 and few detected gaps, so per-stream conclusions are weak.
-- **Orbit and age assumptions.** Ages rely on a stream-length matching model; rates depend on the 5 Gyr orbit integration and the Milky Way potential used.
+- **No observed-vs-predicted test.** The detected gaps (Notebook 2) and predicted encounter rates (Notebook 3) are not compared statistically; this is future work.
+- **No CDM vs. WDM test.** TNG50-1 is a cold dark matter simulation; a WDM prediction would need the subhalo mass function suppressed below a half-mode mass.
+- **Detection completeness not measured.** Gap recovery is tested only under proper-motion-error perturbation (GD-1), not by injecting synthetic gaps.
+- **Weak per-stream constraints.** Several streams have a median predicted rate of 0 and few detected gaps, and rates depend on the stream-age model, the 5 Gyr orbit integration and the Milky Way potential.
+- **Catalogue dependence.** The six other streams use STREAMFINDER members, so its selection and completeness feed into the gap detection.
 
 ## Data sources and references
 
 | Data | Source |
 |---|---|
 | GD-1 stars | Gaia DR3 via the ESA Gaia Archive (queried through TAP; the AIP mirror is the default, ARI Heidelberg and VizieR are fallbacks) |
-| Other streams (Indus, C-12, Ylgr, Orphan, NGC 6397, Jhelum) | Member stars from the STREAMFINDER catalogue *[add citation and URL]* |
+| Other streams (Indus, C-12, Ylgr, Orphan, NGC 6397, Jhelum) | Member stars from the STREAMFINDER atlas of Ibata et al. (2024), ApJ 967, 89 ([DOI](https://doi.org/10.3847/1538-4357/ad382d)); machine-readable table: [apjad382dt1_mrt.txt](https://content.cld.iop.org/journals/0004-637X/967/2/89/revision1/apjad382dt1_mrt.txt) |
 | Stream coordinate frames | `galstreams` Python package |
-| Isochrones | CMD web interface *[add model set and citation]* |
+| Isochrones | PARSEC isochrones (Bressan et al. 2012) from the [CMD web interface](https://stev.oapd.inaf.it/cgi-bin/cmd), Gaia photometric system; 12 Gyr (log age = 10.079), [M/H] = -2.19, shifted to a distance modulus of 14.65 mag (about 8.5 kpc) |
 | Subhalos and host halos | IllustrisTNG, run TNG50-1, snapshot 99 (z = 0), via the TNG API |
 
 **TNG API access:** the notebook reads your personal key from an environment variable, so no credentials are stored in the repository. Get a key from the [TNG project site](https://www.tng-project.org/), then set `TNG_API_KEY` before running Notebook 3.
@@ -107,6 +107,8 @@ References:
 - Stream discovery papers for the six streams (e.g. Shipp et al. 2019, Bonaca et al. 2019, Ibata et al. 2021)
 - Fardal et al. (2015) for the particle-spray stream model, and Lu et al. (2026) for the length-matching age method
 - Koposov et al. (2010) and Malhan & Ibata (2019) for GD-1 width cross-checks
+- Ibata et al. (2024) for the STREAMFINDER stream catalogue
+- Bressan et al. (2012) for the PARSEC isochrones
 
 ## Author
 
