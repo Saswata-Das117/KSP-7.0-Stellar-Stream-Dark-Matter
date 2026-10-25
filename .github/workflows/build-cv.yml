@@ -19,6 +19,8 @@ jobs:
           mv cv/cv.pdf CV.pdf
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add -A cv CV.pdf
+          git add CV.pdf
+          git add -u cv
           git commit -m "Update CV PDF" || exit 0
+          git pull --rebase
           git push
